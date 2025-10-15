@@ -1,5 +1,5 @@
 import { useState } from "react"
-export function Player({name,symbol}){
+export function Player({name,symbol,addClass}){
     const [editing,updateEditing] = useState(false);
     const [nameplayer,updateNamePlayer] = useState(name);
     function handleClick(){
@@ -9,7 +9,7 @@ export function Player({name,symbol}){
         updateNamePlayer(event.target.value)
     }
     return (
-        <li>
+        <li className={addClass}>
             <span className="player">
               {editing === false
               ?<span className="player-name">{nameplayer}</span>

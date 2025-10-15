@@ -4,12 +4,13 @@ const initialBoard = [
     [null,null,null],
     [null,null,null],
 ]
-export function Board(){
+export function Board({onSelect,currentPlayer}){
     const [currentBoard,updateBoard] = useState(initialBoard);
     function handleClick(i,j){
+        onSelect();
         updateBoard((currentBoard)=>{
                 const copy_board = [...currentBoard.map((x)=>[...x])];
-                copy_board[i][j] = 'X';
+                copy_board[i][j] = currentPlayer === 'player1' ? 'X' : 'O';
                 return copy_board;
         })
     }
