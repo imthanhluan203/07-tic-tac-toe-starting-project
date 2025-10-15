@@ -1,9 +1,10 @@
 import { useState } from "react"
-export function Player({name,symbol,addClass}){
+export function Player({name,symbol,addClass,onChangeName}){
     const [editing,updateEditing] = useState(false);
     const [nameplayer,updateNamePlayer] = useState(name);
     function handleClick(){
         updateEditing(val=>!val);
+        {editing === true ? onChangeName(symbol,nameplayer) : undefined}
     }
     function handleOnchange(event){
         updateNamePlayer(event.target.value)
